@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Button from './button';
+import Button from './UI/button';
+import Input from './UI/input';
 
 class ContactForm extends Component {
     constructor(props) {
@@ -17,10 +18,10 @@ class ContactForm extends Component {
     render() {
         let form = (
             <form>
-                <input type="text" placeholder="Name" value={this.state.name}></input>
-                <input type="email" placeholder="E-mail" value={this.state.email}></input>
-                <input type="text" placeholder="Street" value={this.state.street}></input>
-                <input type="text" placeholder="Post Code" value={this.state.postCode}></input>
+                <Input inputtype="input" type="text" placeholder="Name" value={this.state.name}></Input>
+                <Input inputtype="email" type="email" placeholder="E-mail" value={this.state.email}></Input>
+                <Input inputtype="input" type="text" placeholder="Street" value={this.state.street}></Input>
+                <Input inputtype="input" type="text" placeholder="Post Code" value={this.state.postCode}></Input>
                 <Button btnTxt='Send' clicked={this.sendHendler} />
             </form>
         );
