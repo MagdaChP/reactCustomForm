@@ -39,7 +39,7 @@ class ContactForm extends Component {
                     },
                     value: ''
                 },
-                deliveryMethod: {
+                country: {
                     elementType: 'select',
                     elementConfig: {
                         options: [
@@ -67,6 +67,21 @@ class ContactForm extends Component {
         });
     }
 
+    submitHandler = (e) => {
+        e.preventDefault();
+        this.setState({ loading: true });
+        const formData = {};
+        for ( let formElementId in this.state.orderForm ) {
+            formData[formElementId] = this.state.orderForm[formElementId].value
+        }
+        const finalData = {
+            formSubmitData: formData,
+            //add data for example came from component props
+        }
+        //push to database
+        console.log(finalData);
+    }
+
     render() {
         const formElementsArray = [];
         for (let key in this.state.orderForm) {
@@ -76,7 +91,7 @@ class ContactForm extends Component {
             });
         }
         let form = (
-            <form>
+            <form onSubmit={this.submitHandler}>
                 {formElementsArray.map(formElement => (
                     <Input 
                         key={formElement.id}
