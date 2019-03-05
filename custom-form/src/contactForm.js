@@ -43,8 +43,8 @@ class ContactForm extends Component {
                     elementType: 'select',
                     elementConfig: {
                         options: [
-                            { value: 'fastest', displayValue: 'Fastest' },
-                            { value: 'cheapest', displayValue: 'Cheapest' }
+                            { value: 'pl', displayValue: 'Poland' },
+                            { value: 'us', displayValue: 'USA' }
                         ]
                     }
                 }
