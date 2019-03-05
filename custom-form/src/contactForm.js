@@ -53,12 +53,23 @@ class ContactForm extends Component {
         }
     }
     render() {
+        const formElementsArray = [];
+        for (let key in this.state.orderForm) {
+            formElementsArray.push({
+                id: key,
+                config: this.state.orderForm[key]
+            });
+        }
         let form = (
             <form>
-                <Input inputtype="input" type="text" placeholder="Name" value={this.state.name}></Input>
-                <Input inputtype="email" type="email" placeholder="E-mail" value={this.state.email}></Input>
-                <Input inputtype="input" type="text" placeholder="Street" value={this.state.street}></Input>
-                <Input inputtype="input" type="text" placeholder="Post Code" value={this.state.postCode}></Input>
+                {formElementsArray.map(formElement => (
+                    <Input 
+                        key={formElement.id}
+                        elementType={formElement.config.elementType} 
+                        elementConfig={formElement.config.elementConfig}
+                        value={formElement.config.value}    
+                    />
+                ))}
                 <Button btnTxt='Send' clicked={this.sendHendler} />
             </form>
         );
