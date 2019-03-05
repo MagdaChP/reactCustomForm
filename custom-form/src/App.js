@@ -9,7 +9,11 @@ class App extends Component {
         <header className="App-header">
           Custom Form
         </header>
-        <ContactForm />
+        <div className="container">
+          <div className="formWrapper">
+            <ContactForm />
+          </div>
+        </div>
       </div>
     );
   }
