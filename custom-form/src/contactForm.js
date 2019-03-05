@@ -1,16 +1,53 @@
 import React, { Component } from 'react';
 import Button from './UI/button';
-import Input from './UI/input';
+import Input from './UI/input/input';
 
 class ContactForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            email: '',
-            address: {
-                street: '',
-                postCode: ''
+            orderForm: {
+                name: {
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Your Name'
+                    },
+                    value: ''
+                },
+                email: {
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'email',
+                        placeholder: 'Your Email'
+                    },
+                    value: ''
+                },
+                street: {
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Street'
+                    },
+                    value: ''
+                },
+                postCode: {
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Post Code'
+                    },
+                    value: ''
+                },
+                deliveryMethod: {
+                    elementType: 'select',
+                    elementConfig: {
+                        options: [
+                            { value: 'fastest', displayValue: 'Fastest' },
+                            { value: 'cheapest', displayValue: 'Cheapest' }
+                        ]
+                    }
+                }
             },
             loading: false
         }
