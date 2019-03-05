@@ -52,6 +52,21 @@ class ContactForm extends Component {
             loading: false
         }
     }
+
+    inputChangeHandler = (e, inputIdentifier) => {
+        const updatedOrderForm = {
+            ...this.state.orderForm
+        };
+        const updatedFormElement = {
+            ...updatedOrderForm[inputIdentifier] 
+        };
+        updatedFormElement.value = e.target.value;
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        this.setState({
+            orderForm: updatedOrderForm
+        });
+    }
+
     render() {
         const formElementsArray = [];
         for (let key in this.state.orderForm) {
@@ -67,7 +82,8 @@ class ContactForm extends Component {
                         key={formElement.id}
                         elementType={formElement.config.elementType} 
                         elementConfig={formElement.config.elementConfig}
-                        value={formElement.config.value}    
+                        value={formElement.config.value}
+                        changed={(e) => this.inputChangeHandler(e, formElement.id)}
                     />
                 ))}
                 <Button btnTxt='Send' clicked={this.sendHendler} />
