@@ -3,8 +3,7 @@
 Adding, removing or changing order of each form element can be done by editing component state only.
 
 <h2> Available Scripts <h2>
-
-In the project directory, you can run:
+<span> In the project directory, you can run: <span>
 
 ### `npm start`
 
